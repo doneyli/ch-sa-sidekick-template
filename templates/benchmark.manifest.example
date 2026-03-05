@@ -1,0 +1,42 @@
+# ============================================================================
+#  Benchmark Manifest — Example
+# ============================================================================
+#
+#  Format: label | database | sql_file_or_mv_table | variant
+#
+#  - label:              Human-readable name shown in output
+#  - database:           ClickHouse database to run against
+#  - sql_file_or_mv_table: Path to .sql file (relative to manifest dir or absolute)
+#                          OR MV/table name (auto-detected: if file doesn't exist, treated as table)
+#  - variant:            Tag for grouping results (e.g., original, optimized, dict, mv)
+#
+#  Lines starting with # are comments. Blank lines are ignored.
+#
+#  Tips:
+#  - Group related queries together (original then optimized)
+#  - Use consistent variant names across queries for easier comparison
+#  - SQL files should contain a single query (no trailing semicolons needed)
+#  - MV entries auto-generate: SELECT * FROM <table> FORMAT Null
+# ============================================================================
+
+# --- Query 1: Large group rollup ---
+Q1 Original  | example_db | queries/large_group_v5.sql                  | original
+Q1 Optimized | example_db | queries/optimized/large_group_v5_optimized.sql | optimized
+Q1 Dict      | example_db | queries/optimized/large_group_v5_dict.sql   | dict
+Q1 MV        | example_db | mv_q1_large_group                          | mv
+
+# --- Query 2: Large leaves ---
+Q2 Original  | example_db | queries/large_leaves_v2.sql                 | original
+Q2 Optimized | example_db | queries/optimized/large_leaves_v2_optimized.sql | optimized
+Q2 MV        | example_db | mv_q2_large_leaves                         | mv
+
+# --- Query 3: Sales chain wide ---
+Q3 Original  | example_db | queries/sales_chain_large_wide.sql          | original
+Q3 Optimized | example_db | queries/optimized/sales_chain_large_wide_optimized.sql | optimized
+Q3 MV        | example_db | mv_q3_sales_chain_wide                     | mv
+
+# --- Query 4: Sales chain leaf ---
+Q4 Original  | example_db | queries/sales_chain_leaf_large_wide.sql     | original
+Q4 Optimized | example_db | queries/optimized/sales_chain_leaf_large_wide_optimized.sql | optimized
+Q4 Dict      | example_db | queries/optimized/sales_chain_leaf_dict.sql | dict
+Q4 MV        | example_db | mv_q4_sales_chain_leaf_wide                | mv

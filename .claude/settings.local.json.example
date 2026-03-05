@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__clickhouse-docs__search_clickhouse_knowledge_sources",
+      "mcp__clickhouse-docs__ask_clickhouse_question",
+      "WebFetch(domain:clickhouse.com)",
+      "Bash(clickhouse-client:*)",
+      "Bash(curl:*)",
+      "Bash(claude mcp:*)",
+      "Bash(python3:*)",
+      "Bash(wc:*)",
+      "Bash(ls:*)",
+      "Bash(head:*)",
+      "WebSearch",
+      "WebFetch(domain:docs.cloud.google.com)"
+    ]
+  }
+}

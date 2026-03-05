@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{CUSTOMER_NAME}} Query Optimization Assessment</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1a1a1a; line-height: 1.6; max-width: 780px; margin: 0 auto; padding: 24px; font-size: 14px; }
+  h1 { font-size: 22px; border-bottom: 2px solid #FADB14; padding-bottom: 8px; margin-bottom: 4px; }
+  h2 { font-size: 17px; color: #1a1a1a; margin-top: 32px; border-bottom: 1px solid #e0e0e0; padding-bottom: 4px; }
+  h3 { font-size: 14px; color: #444; margin-top: 20px; margin-bottom: 8px; }
+  .meta { color: #666; font-size: 13px; margin-bottom: 20px; }
+  .tldr { background: #FFFBE6; border-left: 4px solid #FADB14; padding: 12px 16px; margin: 16px 0; border-radius: 0 4px 4px 0; }
+  .tldr strong { color: #1a1a1a; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th { background: #f5f5f5; text-align: left; padding: 8px 10px; border: 1px solid #ddd; font-weight: 600; }
+  td { padding: 8px 10px; border: 1px solid #ddd; }
+  tr:nth-child(even) td { background: #fafafa; }
+  .highlight { background: #e6ffe6; font-weight: 600; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 12.5px; }
+  pre { background: #1e1e1e; color: #d4d4d4; padding: 14px 16px; border-radius: 6px; overflow-x: auto; font-size: 12.5px; line-height: 1.5; }
+  pre .comment { color: #6a9955; }
+  pre .keyword { color: #569cd6; }
+  .tier { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+  .tier-1 { background: #e6ffe6; color: #1a7a1a; }
+  .tier-2 { background: #e6f0ff; color: #1a4a7a; }
+  .tier-3 { background: #fff3e6; color: #7a4a1a; }
+  .callout { background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 6px; padding: 12px 16px; margin: 12px 0; }
+  .callout-title { font-weight: 600; margin-bottom: 4px; }
+  .consideration { margin-bottom: 10px; }
+  .consideration strong { color: #333; }
+  hr { border: none; border-top: 1px solid #e0e0e0; margin: 28px 0; }
+  .footer { color: #888; font-size: 12px; margin-top: 32px; padding-top: 16px; border-top: 1px solid #e0e0e0; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 4px; }
+  .db-label { display: inline-block; font-size: 11px; background: #e8e8e8; padding: 1px 6px; border-radius: 3px; font-family: monospace; }
+</style>
+</head>
+<body>
+
+<h1>{{CUSTOMER_NAME}} Query Optimization Assessment</h1>
+<div class="meta">{{DATE}} &nbsp;&middot;&nbsp; Service: {{SERVICE_HOST}} ({{CH_VERSION}}) &nbsp;&middot;&nbsp; {{CLUSTER_SPEC}}</div>
+
+<!-- ================================================================ -->
+<!--  TL;DR                                                           -->
+<!-- ================================================================ -->
+
+<div class="tldr">
+  <strong>TL;DR</strong> &mdash; {{TLDR_CONTENT}}
+</div>
+
+<!-- ================================================================ -->
+<!--  What We Found                                                   -->
+<!-- ================================================================ -->
+
+<h2>What We Found</h2>
+
+<h3>Single-Query Latency</h3>
+<table>
+  <tr>
+    <th>Query</th>
+    <th>Before</th>
+    <th>Best Live</th>
+    <th>MV Read</th>
+    <th>Live &Delta;</th>
+  </tr>
+  <!-- {{SINGLE_QUERY_ROWS}}
+       Repeat this block per query:
+  <tr>
+    <td>Q1 &mdash; description</td>
+    <td>1.13s</td>
+    <td>0.77s</td>
+    <td class="highlight">0.034s</td>
+    <td>-32% (dict)</td>
+  </tr>
+  -->
+</table>
+
+<h3>{{CONCURRENCY_N}} Concurrent Queries</h3>
+<table>
+  <tr>
+    <th>Query</th>
+    <th>Before</th>
+    <th>Best Live (mt=1)</th>
+    <th>MV Read</th>
+  </tr>
+  <!-- {{CONCURRENT_QUERY_ROWS}}
+       Repeat this block per query:
+  <tr>
+    <td>Q1</td>
+    <td>15.6s</td>
+    <td>10.0s</td>
+    <td class="highlight">0.96s</td>
+  </tr>
+  -->
+</table>
+
+<hr>
+
+<!-- ================================================================ -->
+<!--  Recommendations                                                 -->
+<!-- ================================================================ -->
+
+<h2>Recommendations</h2>
+
+<!-- TIER 1 — Quick wins, biggest impact -->
+<h3><span class="tier tier-1">TIER 1</span> {{TIER1_TITLE}}</h3>
+
+<p>{{TIER1_DESCRIPTION}}</p>
+
+<pre>{{TIER1_SQL}}</pre>
+
+<p><strong>Tradeoff:</strong> {{TIER1_TRADEOFF}}</p>
+
+<!-- TIER 2 — Configuration / settings changes -->
+<h3><span class="tier tier-2">TIER 2</span> {{TIER2_TITLE}}</h3>
+
+<pre>{{TIER2_SQL}}</pre>
+
+<p>{{TIER2_DESCRIPTION}}</p>
+
+<!-- TIER 3 — Code changes / rewrites -->
+<h3><span class="tier tier-3">TIER 3</span> {{TIER3_TITLE}}</h3>
+
+<ul>
+  <!-- {{TIER3_ITEMS}}
+       Repeat per query:
+  <li><strong>Q1</strong> &mdash; Description of rewrite and why it helps.</li>
+  -->
+</ul>
+
+<p>{{TIER3_CLOSING}}</p>
+
+<hr>
+
+<!-- ================================================================ -->
+<!--  What We Didn't Test / Considerations                            -->
+<!-- ================================================================ -->
+
+<h2>What We Didn't Test / Considerations</h2>
+
+<!-- {{CONSIDERATIONS}}
+     Repeat this block per consideration:
+<div class="consideration">
+  <strong>Topic</strong> &mdash; Description of what wasn't tested and why it matters.
+</div>
+-->
+
+<hr>
+
+<!-- ================================================================ -->
+<!--  Objects Deployed                                                -->
+<!-- ================================================================ -->
+
+<h2>Objects Deployed on Your Service</h2>
+
+<!-- {{DEPLOYED_OBJECTS}}
+     Repeat per database:
+<h3><span class="db-label">database_name</span></h3>
+<table>
+  <tr><th>Object</th><th>Type</th><th>Notes</th></tr>
+  <tr><td><code>object_name</code></td><td>Dictionary (HASHED)</td><td>100K entries, 28 MiB</td></tr>
+</table>
+-->
+
+<!-- ================================================================ -->
+<!--  Cleanup SQL                                                     -->
+<!-- ================================================================ -->
+
+<div class="callout">
+  <div class="callout-title">Cleanup (if needed)</div>
+<pre>{{CLEANUP_SQL}}</pre>
+</div>
+
+<hr>
+
+<!-- ================================================================ -->
+<!--  Key Technical Lessons (optional — include if notable)           -->
+<!-- ================================================================ -->
+
+<!-- {{KEY_LESSONS}}
+     Optional section. Include if there's a notable technical lesson:
+<h2>Key Technical Lesson Title</h2>
+<p>Explanation of the root cause or interesting finding.</p>
+<ol>
+  <li><strong>Point 1</strong> &mdash; Detail.</li>
+  <li><strong>Point 2</strong> &mdash; Detail.</li>
+</ol>
+<p>Summary statement about the implications.</p>
+-->
+
+<!-- ================================================================ -->
+<!--  Closing                                                         -->
+<!-- ================================================================ -->
+
+<hr>
+
+<p>{{CLOSING_TEXT}}</p>
+
+<div class="footer">
+  ClickHouse Solutions Architecture &nbsp;&middot;&nbsp; Generated {{DATE}}
+</div>
+
+</body>
+</html>

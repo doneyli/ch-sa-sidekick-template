@@ -1,0 +1,29 @@
+# === Customer data (NEVER commit) ===
+customers/
+projects/
+
+# === Generated insights data ===
+insights/
+
+# === Personal config (not for sharing) ===
+sa-persona.md
+
+# === Binary distribution (hosted on Google Drive) ===
+sa-sidekick-starter.zip
+
+# === Credentials & secrets ===
+query-endpoint.py
+*.credentials*
+*.env
+.env*
+
+# === Claude Code local settings (contains credentials) ===
+.claude/settings.local.json
+
+# === Working drafts & diagrams ===
+artifacts/diagrams/
+
+# === OS / editor junk ===
+.DS_Store
+*.swp
+*~
