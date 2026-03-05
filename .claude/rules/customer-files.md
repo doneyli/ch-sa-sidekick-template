@@ -33,3 +33,7 @@ When updating an existing file, add a dated status update section below the head
 - **YYYY-MM-DD** — Description of update
 - **YYYY-MM-DD** — Original creation
 ```
+
+## Folder Structure
+
+Each customer gets their own folder: `customers/{customer-name}/`. Keep all engagement artifacts together in one place.
