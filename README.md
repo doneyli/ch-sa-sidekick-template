@@ -130,6 +130,4 @@ my-sa-sidekick/
 1. Run `templates/weekly-insights-extract.sh --days 7 --output-dir insights/`
 2. Run `/generating-weekly-insights` to generate the narrative report
 
-## What Stays Local
 
-Customer data, credentials, and generated insights stay local via `.gitignore`. This repo contains only reusable tooling — skills, rules, and templates.
