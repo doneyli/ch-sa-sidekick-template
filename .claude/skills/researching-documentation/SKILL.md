@@ -18,6 +18,18 @@ This skill enforces a systematic multi-pass search approach to:
 
 ## Instructions
 
+### Step 0: MCP Connectivity Check (MANDATORY)
+
+Before doing ANY research, run a single test query using `mcp__clickhouse-docs__search_clickhouse_knowledge_sources` with the query `"ClickHouse MergeTree"`.
+
+- **If the call succeeds** (returns results): Proceed to Step 1.
+- **If the call fails, errors, or times out**: **STOP and warn the user:**
+  > **MCP DISCONNECTED** — The ClickHouse docs MCP server is not responding. You may need to re-authenticate. Run `claude mcp list` to check status.
+  >
+  > I can continue with web search, but results will NOT come from the official docs corpus and may be outdated. Proceed? (y/n)
+
+  **Wait for the user to respond** before continuing. Do NOT silently fall back to web search.
+
 ### Step 1: Decompose the Question
 
 Break down the question into 4-5 specific sub-questions. ALWAYS include:
@@ -83,19 +95,31 @@ Categorize all findings into:
 
 ---
 
+## Source Status
+
+| Source | Status |
+|--------|--------|
+| ClickHouse Docs MCP | [CONNECTED / DISCONNECTED — if disconnected, note that results below are from web search] |
+| Web Search | [USED / NOT USED] |
+| General Knowledge | [USED / NOT USED] |
+
+> If MCP was disconnected, a warning was shown and the user approved continuing with alternative sources.
+
+---
+
 ## Documented Facts (High Confidence)
 
 These findings come directly from official documentation:
 
-| Finding | Source URL |
-|---------|------------|
-| [Fact 1] | [URL] |
-| [Fact 2] | [URL] |
+| Finding | Source | URL |
+|---------|--------|-----|
+| [Fact 1] | [MCP / Web / General] | [URL or "N/A"] |
+| [Fact 2] | [MCP / Web / General] | [URL or "N/A"] |
 
 ### Key Documentation Excerpts
 
 > [Direct quote from docs]
-> — Source: [URL]
+> — Source: [MCP / Web] — [URL]
 
 ---
 
@@ -103,10 +127,10 @@ These findings come directly from official documentation:
 
 Logical deductions based on documented patterns:
 
-| Inference | Reasoning |
-|-----------|-----------|
-| [Inference 1] | Based on [documented fact], we can infer... |
-| [Inference 2] | By analogy with [similar feature]... |
+| Inference | Reasoning | Based on |
+|-----------|-----------|----------|
+| [Inference 1] | Based on [documented fact], we can infer... | [Source + URL] |
+| [Inference 2] | By analogy with [similar feature]... | [Source + URL] |
 
 ---
 
@@ -156,8 +180,12 @@ Additional searches triggered by initial findings:
 
 ## Checklist Before Completing
 
+- [ ] Ran MCP connectivity check (Step 0)
+- [ ] If MCP was down: warned the user and got explicit approval before using web search
 - [ ] Generated at least 4 sub-questions
 - [ ] Ran parallel searches for ALL sub-questions
+- [ ] **Every finding has a source tag (MCP / Web / General) and a URL**
+- [ ] Source Status table is filled in at the top of the output
 - [ ] Explicitly identified documentation gaps
 - [ ] Distinguished documented facts from inferences
 - [ ] Provided confidence level for the answer
