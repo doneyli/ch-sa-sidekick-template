@@ -32,6 +32,7 @@ CONCURRENCY=25
 MANIFEST=""
 OUTPUT_DIR="."
 CH_BIN=""
+ENV_FILE=""
 
 # --- Parse args ---
 while [[ $# -gt 0 ]]; do
@@ -44,30 +45,56 @@ while [[ $# -gt 0 ]]; do
         --concurrency) CONCURRENCY="$2"; shift 2 ;;
         --manifest)    MANIFEST="$2"; shift 2 ;;
         --output-dir)  OUTPUT_DIR="$2"; shift 2 ;;
+        --env-file)    ENV_FILE="$2"; shift 2 ;;
         --no-secure)   SECURE=""; shift ;;
         --help|-h)
-            echo "Usage: $0 --host <host> --password <password> --manifest <file>"
+            echo "Usage: $0 --manifest <file> --env-file <file>"
+            echo "   or: $0 --manifest <file> --host <host> --password <password>"
             echo ""
             echo "Options:"
-            echo "  --host HOST          ClickHouse host"
-            echo "  --password PASS      ClickHouse password"
-            echo "  --user USER          ClickHouse user (default: default)"
-            echo "  --database DB        Default database (overridden by manifest per-query)"
+            echo "  --env-file FILE      Load credentials from .env file (recommended)"
+            echo "  --host HOST          ClickHouse host (or CH_HOST in .env)"
+            echo "  --password PASS      ClickHouse password (or CH_PASSWORD in .env)"
+            echo "  --user USER          ClickHouse user (default: default, or CH_USER in .env)"
+            echo "  --database DB        Default database (or CH_DATABASE in .env)"
             echo "  --runs N             Runs per query (default: 3)"
             echo "  --concurrency N      Parallel queries for concurrent tests (default: 25)"
             echo "  --manifest FILE      Path to benchmark manifest file"
             echo "  --output-dir DIR     Output directory for results (default: .)"
-            echo "  --no-secure          Disable TLS"
+            echo "  --no-secure          Disable TLS (or CH_SECURE=false in .env)"
             exit 0
             ;;
         *) echo "Unknown arg: $1. Use --help for usage."; exit 1 ;;
     esac
 done
 
+# --- Load .env file if provided ---
+if [[ -n "$ENV_FILE" ]]; then
+    if [[ ! -f "$ENV_FILE" ]]; then
+        echo "Error: .env file not found: $ENV_FILE"
+        exit 1
+    fi
+    # Source the .env file, only exporting CH_* variables
+    set -a
+    # shellcheck disable=SC1090
+    source "$ENV_FILE"
+    set +a
+
+    # Map .env variables to script variables (CLI args take precedence)
+    [[ -z "$HOST" && -n "${CH_HOST:-}" ]]         && HOST="$CH_HOST"
+    [[ -z "$PASSWORD" && -n "${CH_PASSWORD:-}" ]] && PASSWORD="$CH_PASSWORD"
+    [[ "$USER" == "default" && -n "${CH_USER:-}" ]] && USER="$CH_USER"
+    [[ -z "$DATABASE" && -n "${CH_DATABASE:-}" ]] && DATABASE="$CH_DATABASE"
+    if [[ -n "${CH_SECURE:-}" && "$CH_SECURE" == "false" ]]; then
+        SECURE=""
+    fi
+fi
+
 # --- Validate required args ---
 if [[ -z "$HOST" || -z "$PASSWORD" || -z "$MANIFEST" ]]; then
-    echo "Error: --host, --password, and --manifest are required."
-    echo "Usage: $0 --host <host> --password <password> --manifest <file>"
+    echo "Error: --manifest is required, plus credentials via --env-file or --host/--password."
+    echo "Usage: $0 --manifest <file> --env-file <file>"
+    echo "   or: $0 --manifest <file> --host <host> --password <password>"
     exit 1
 fi
 
