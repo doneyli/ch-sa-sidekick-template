@@ -10,12 +10,12 @@ Generate an HTML email response for: **$ARGUMENTS**
 
 ## Voice
 
-This is a **customer-facing deliverable**. Follow `@sa-persona.md` — deliverable voice, **email channel**. Slightly more formal than Slack. Still direct, still concise, still ClickHouse-native.
+This is a **customer-facing deliverable**. Follow `@sa-persona.md` - deliverable voice, **email channel**. Slightly more formal than Slack. Still direct, still concise, still ClickHouse-native.
 
 ## Instructions
 
 1. If a full assessment or prior context exists in `customers/$ARGUMENTS/`, read it first
-2. Lead with the answer or key result — no throat-clearing
+2. Lead with the answer or key result  - no throat-clearing
 3. Use tables for any structured data (benchmarks, action items, comparisons)
 4. Include copy-paste ready SQL in `<pre>` blocks when relevant
 5. End with clear next steps and action items (table format if >2 items)
@@ -26,9 +26,9 @@ This is a **customer-facing deliverable**. Follow `@sa-persona.md` — deliverab
 Write to: `customers/$ARGUMENTS/YYYY-MM-DD-email-response.html`
 
 The HTML must be:
-- **Gmail-safe** — inline CSS only, no external resources, no `<head>` stylesheet
-- **Self-contained** — opens correctly in any browser for preview
-- **Copy-paste ready** — select all in browser, paste into Gmail compose, formatting preserved
+- **Gmail-safe**  - inline CSS only, no external resources, no `<head>` stylesheet
+- **Self-contained**  - opens correctly in any browser for preview
+- **Copy-paste ready**  - select all in browser, paste into Gmail compose, formatting preserved
 
 ## HTML Template
 
@@ -42,17 +42,17 @@ Style reference: see the HTML template below (based on real engagement deliverab
 
 <p>Hi [Name],</p>
 
-<p>[1-2 sentence TL;DR — the answer, the key result, or the update. Lead with impact.]</p>
+<p>[1-2 sentence TL;DR  - the answer, the key result, or the update. Lead with impact.]</p>
 
-<!-- TL;DR callout for major findings (optional — use when leading with a headline metric) -->
+<!-- TL;DR callout for major findings (optional  - use when leading with a headline metric) -->
 <div style="background: #FFFBE6; border-left: 4px solid #FADB14; padding: 12px 16px; margin: 16px 0; border-radius: 0 4px 4px 0;">
-  <strong>TL;DR</strong> — [Headline result in one sentence.]
+  <strong>TL;DR</strong>  - [Headline result in one sentence.]
 </div>
 
 <!-- Section headers: ClickHouse yellow underline -->
 <h3 style="font-size: 14px; color: #444; margin-top: 20px; margin-bottom: 8px; border-bottom: 1px solid #FADB14; padding-bottom: 4px;">[Section Header]</h3>
 
-<p>[Explanation — direct, concise. ClickHouse jargon is fine.]</p>
+<p>[Explanation  - direct, concise. ClickHouse jargon is fine.]</p>
 
 <!-- Tables for structured data -->
 <table style="border-collapse: collapse; width: auto; margin: 12px 0; font-size: 13px;">
@@ -100,7 +100,7 @@ Style reference: see the HTML template below (based on real engagement deliverab
 </table>
 
 <!-- Or simple paragraph for 1-2 items -->
-<p>[Closing line — offer to dig deeper, hop on a call, or walk through the approach.]</p>
+<p>[Closing line  - offer to dig deeper, hop on a call, or walk through the approach.]</p>
 
 <p>Best,<br>
 [Your Name]</p>
@@ -129,24 +129,25 @@ Style reference: see the HTML template below (based on real engagement deliverab
 
 ## Formatting Rules
 
-- **Headers**: `<h3>` with `border-bottom: 1px solid #FADB14` — ClickHouse yellow underline
+- **Headers**: `<h3>` with `border-bottom: 1px solid #FADB14`  - ClickHouse yellow underline
 - **Tables**: Inline styles on every element (Gmail strips `<style>` blocks). Alternating rows with `background: #fafafa`
 - **SQL blocks**: Dark theme (`#1e1e1e`) with syntax highlighting via inline `<span>` styles. Keywords blue (`#569cd6`), comments green (`#6a9955`)
 - **Inline code**: `<code>` with `background: #f0f0f0` for column names, settings, functions in prose
 - **Emphasis**: `<strong>` for key numbers. Green (`#0d7c3d`) for positive results in table cells
-- **Callout boxes**: `background: #f8f8f8` with border — use for cleanup SQL, grouped caveats, notes
+- **Callout boxes**: `background: #f8f8f8` with border  - use for cleanup SQL, grouped caveats, notes
 - **Footnotes**: `font-size: 12px; color: #666` for methodology notes, benchmark conditions
 - **No images, no external CSS, no JavaScript**
 
 ## Email-Specific Tone
 
-- **Opener**: "Hi [Name]," or "Hi Team," — not "Hey"
-- **Sign-off**: "Best,\n[Your Name]" — always include
-- **Paragraphs over bullets** — email reads better with short paragraphs than raw bullet lists
-- **Tables for data** — never dump raw numbers in prose; always tabulate
+- **Opener**: "Hi [Name]," or "Hi Team," - not "Hey"
+- **Sign-off**: "Best,\n[Your Name]" - always include
+- **Paragraphs over bullets** - email reads better with short paragraphs than raw bullet lists
+- **Tables for data** - never dump raw numbers in prose; always tabulate
 - **Reference prior context**: "Following up on...", "As discussed..."
-- **Still direct** — no fluff, no preamble, lead with the result
-- **Still ClickHouse-native** — jargon is fine, no dumbing down
+- **Still direct** - no fluff, no preamble, lead with the result
+- **Still ClickHouse-native** - jargon is fine, no dumbing down
+- **No em dashes** - use regular dashes (-), colons, or reword. Never use the " -" character.
 
 ## Checklist
 
