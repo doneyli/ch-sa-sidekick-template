@@ -96,7 +96,7 @@ Write the report to `insights/YYYY-MM-DD-weekly-insights.md` using today's date.
 
 ### Tool/Skill Usage
 - {Observation about tool usage — e.g., "Heavy docs-research usage (15x) suggests lots of investigative work this week vs. known-pattern application."}
-- {Underused tool/skill — e.g., "/drafting-follow-up only used once despite 4 customer calls. Consider making it a habit."}
+- {Underused tool/skill — e.g., "/tracking-follow-up-items only used once despite 4 customer calls. Consider making it a habit."}
 
 ---
 

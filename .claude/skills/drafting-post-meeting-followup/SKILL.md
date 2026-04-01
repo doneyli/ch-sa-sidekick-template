@@ -1,5 +1,5 @@
 ---
-name: post-meeting-followup
+name: drafting-post-meeting-followup
 description: End-to-end post-meeting workflow - find transcript, extract action items, research docs, draft and send follow-up email. Use after any customer call, when you need to send meeting notes, when extracting action items from a call, or when the full post-meeting pipeline needs to run (transcript to email).
 arguments: customer-name [meeting-date]
 allowed-tools: Bash, Read, Write

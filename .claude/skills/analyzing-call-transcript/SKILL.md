@@ -122,7 +122,7 @@ This is an **internal deliverable** (sidekick â†’ SA). Follow `@sa-persona.md` â
 
 [What skill to invoke next based on the call content]
 
-- **Immediate**: [e.g., "/drafting-follow-up $ARGUMENTS" to send summary email]
+- **Immediate**: [e.g., "/tracking-follow-up-items $ARGUMENTS" to track open items]
 - **Short-term**: [e.g., "/drafting-technical-assessment $ARGUMENTS" if technical deep-dive was requested]
 - **If applicable**: [e.g., "/preparing-meeting $ARGUMENTS" for the next call]
 
