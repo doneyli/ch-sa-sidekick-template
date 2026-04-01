@@ -2,6 +2,7 @@
 name: analyzing-slack-thread
 description: Load customer context and produce a structured situation analysis from Slack threads. Use when a customer posts a question, when triaging a support thread, when analyzing a Slack conversation before responding, or when you need to understand the full context of a customer interaction.
 arguments: customer-name
+compatibility: Benefits from Slack MCP (mcp__plugin_slack_slack) for live thread reading. Falls back to local files in customer folder if unavailable.
 model: sonnet
 ---
 

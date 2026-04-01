@@ -3,6 +3,7 @@ name: drafting-post-meeting-followup
 description: End-to-end post-meeting workflow - find transcript, extract action items, research docs, draft and send follow-up email. Use after any customer call, when you need to send meeting notes, when extracting action items from a call, or when the full post-meeting pipeline needs to run (transcript to email).
 arguments: customer-name [meeting-date]
 allowed-tools: Bash, Read, Write
+compatibility: Requires Google Calendar MCP (gcal), Gmail MCP (gmail), Notion MCP, ClickHouse Docs MCP, Slack MCP. Degrades gracefully - see Error Handling table.
 model: opus
 ---
 

@@ -2,6 +2,7 @@
 name: researching-documentation
 description: Perform thorough multi-pass documentation research with gap analysis for ClickHouse questions. Use when a customer asks a complex ClickHouse question, when you need to verify behavior against official docs, when a single search is insufficient, or when researching features, privileges, or compatibility across versions.
 arguments: question
+compatibility: Requires ClickHouse Docs MCP (mcp__clickhouse-docs). Mandatory connectivity check before research begins.
 model: sonnet
 ---
 

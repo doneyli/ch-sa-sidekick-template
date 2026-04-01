@@ -21,11 +21,7 @@ This is a **customer-facing deliverable**. Follow `@sa-persona.md` — deliverab
    - DDL files showing source schema
    - Migration notes or README files describing the conversion scope
 
-2. **Identify source database dialect** — Determine from syntax:
-   - **Snowflake**: `IFF()`, `QUALIFY`, `::variant`, `FLATTEN`, `LATERAL`, `TRY_CAST`
-   - **Postgres**: `::type` casting, `ILIKE`, `GENERATE_SERIES`, `ARRAY_AGG`, `JSONB`
-   - **MySQL**: backtick quoting, `IFNULL`, `GROUP_CONCAT`, `AUTO_INCREMENT`
-   - **BigQuery**: backtick project.dataset.table, `SAFE_DIVIDE`, `STRUCT`, `UNNEST`
+2. **Identify source database dialect** — Read `references/dialect-mappings.md` for identification markers, type mappings, and common syntax conversion patterns. Determine dialect from syntax clues.
 
 3. **Invoke `/clickhouse-best-practices`** — Converted DDL should follow ClickHouse best practices:
    - ORDER BY key design (`schema-pk-*` rules)
