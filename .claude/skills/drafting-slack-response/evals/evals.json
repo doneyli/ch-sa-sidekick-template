@@ -1,0 +1,65 @@
+{
+  "skill_name": "drafting-slack-response",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Neo-Financial is trying to connect MSK in ca-central-1 to ClickHouse Cloud but getting timeouts. We've already researched the docs and found egress IPs and VPC endpoint options. Draft a concise Slack response for the customer explaining the networking options with doc links.",
+      "expected_output": "A concise Slack message (200-500 words) that leads with the answer, explains egress IPs and VPC endpoint options, includes doc links, and offers clear next steps",
+      "files": [],
+      "assertions": [
+        {
+          "name": "concise-length",
+          "text": "Response is under 500 words (not counting SQL blocks)"
+        },
+        {
+          "name": "leads-with-answer",
+          "text": "First sentence or paragraph directly addresses the connectivity issue rather than starting with preamble"
+        },
+        {
+          "name": "includes-next-steps",
+          "text": "Response includes clear next steps or asks the customer for specific information"
+        },
+        {
+          "name": "no-em-dashes",
+          "text": "Response contains no em dash characters"
+        },
+        {
+          "name": "no-bot-speak",
+          "text": "Response does not use phrases like 'Certainly!', 'Great question!', 'I'd be happy to', 'Absolutely!'"
+        },
+        {
+          "name": "customer-appropriate-tone",
+          "text": "Tone is casual-professional, not overly formal or stiff. ClickHouse jargon is used naturally."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We just got introduced to the Gitlab 'Knowledge graph' team. The account rep wants a quick internal Slack response explaining how ClickHouse might fit into their product and how to approach discovery. This is internal, not customer-facing.",
+      "expected_output": "A concise internal Slack response with ClickHouse fit analysis for the Knowledge Graph use case, discovery approach suggestions, and key questions to ask",
+      "files": [],
+      "assertions": [
+        {
+          "name": "concise-length",
+          "text": "Response is under 500 words"
+        },
+        {
+          "name": "internal-tone",
+          "text": "Tone is appropriate for internal team communication - can be more direct and use internal context"
+        },
+        {
+          "name": "discovery-guidance",
+          "text": "Response includes specific questions to ask or discovery approach for the account rep"
+        },
+        {
+          "name": "clickhouse-fit-analysis",
+          "text": "Response explains how ClickHouse could fit the use case with specific technical reasoning"
+        },
+        {
+          "name": "no-em-dashes",
+          "text": "Response contains no em dash characters"
+        }
+      ]
+    }
+  ]
+}

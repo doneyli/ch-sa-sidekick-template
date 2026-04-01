@@ -1,0 +1,73 @@
+{
+  "skill_name": "researching-documentation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a customer looking to do a pretty large mutation - adding 34 type hints on a JSON column (going from max_dynamic_paths = 0 to pulling out 34 specific key:value pairs). The table has about 2B rows. What does the docs say about mutation behavior on large tables, and does max_dynamic_paths interact with ALTER TABLE ADD COLUMN in any special way?",
+      "expected_output": "Research report with: MCP connectivity check performed, 4+ sub-questions generated, parallel searches executed, documented facts about mutations on large tables, findings about max_dynamic_paths behavior, confidence levels assigned, documentation gaps identified, verification steps provided",
+      "files": [],
+      "assertions": [
+        {
+          "name": "mcp-connectivity-check",
+          "text": "Output includes evidence that MCP connectivity was checked before research began"
+        },
+        {
+          "name": "sub-questions-generated",
+          "text": "At least 4 distinct sub-questions were generated from the original question"
+        },
+        {
+          "name": "source-tags-present",
+          "text": "Every finding has a source tag (MCP / Web / General) and a URL where applicable"
+        },
+        {
+          "name": "confidence-levels",
+          "text": "Findings are categorized into Documented (high), Inferred (medium), and Gaps (unknown)"
+        },
+        {
+          "name": "documentation-gaps-identified",
+          "text": "At least one documentation gap is explicitly called out"
+        },
+        {
+          "name": "verification-steps",
+          "text": "Output includes concrete verification steps the customer can take"
+        },
+        {
+          "name": "no-em-dashes",
+          "text": "Output contains no em dash characters"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A customer on ClickHouse Cloud is trying to connect their MSK (Managed Streaming for Kafka) cluster in AWS ca-central-1 to ClickHouse Cloud. They're getting connection timeouts. What are the networking options - egress IPs, VPC endpoints, PrivateLink? What does the docs say about AWS region compatibility?",
+      "expected_output": "Research report covering: Cloud networking options (egress IPs, Private Link, VPC endpoints), AWS region-specific documentation, MSK-specific connectivity guidance, version requirements if any, with clear source attribution",
+      "files": [],
+      "assertions": [
+        {
+          "name": "mcp-connectivity-check",
+          "text": "Output includes evidence that MCP connectivity was checked before research began"
+        },
+        {
+          "name": "parallel-searches",
+          "text": "Sub-questions table shows results counts for each query, indicating parallel execution"
+        },
+        {
+          "name": "networking-options-covered",
+          "text": "Output covers at least 2 of: egress IPs, PrivateLink, VPC endpoints"
+        },
+        {
+          "name": "source-status-table",
+          "text": "Output includes a Source Status table showing which sources were used (MCP/Web/General)"
+        },
+        {
+          "name": "urls-provided",
+          "text": "At least 2 documentation URLs are included in the findings"
+        },
+        {
+          "name": "answer-with-confidence",
+          "text": "Final answer section includes an explicit confidence level (High/Medium/Low)"
+        }
+      ]
+    }
+  ]
+}

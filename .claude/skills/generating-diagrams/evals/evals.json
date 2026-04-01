@@ -1,0 +1,65 @@
+{
+  "skill_name": "generating-diagrams",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a workflow diagram showing how an SA injects customer context from the customers/ folder into multiple parallel Claude Code sessions, each mapped to a different skill (analyzing-slack-thread, reviewing-queries, drafting-technical-assessment). Show the flow from customer folder to parallel sessions to output artifacts back into the customer folder.",
+      "expected_output": "A .drawio file with a multi-step workflow diagram showing customer folder as input, parallel session boxes for each skill, and output artifacts flowing back",
+      "files": [],
+      "assertions": [
+        {
+          "name": "valid-drawio-xml",
+          "text": "Output file is valid XML with mxGraphModel root element containing mxCell elements"
+        },
+        {
+          "name": "has-root-cells",
+          "text": "XML contains the required root cells: id='0' and id='1' with parent='0'"
+        },
+        {
+          "name": "no-double-hyphens-in-comments",
+          "text": "No XML comments contain double hyphens (--) which would break XML parsing"
+        },
+        {
+          "name": "unique-cell-ids",
+          "text": "All mxCell elements have unique id attributes"
+        },
+        {
+          "name": "has-edges",
+          "text": "Diagram contains edge elements (arrows) connecting nodes, not just standalone boxes"
+        },
+        {
+          "name": "file-opened",
+          "text": "The .drawio file was opened for preview using the platform-appropriate command"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "png: Langfuse and ClickHouse architecture diagram showing the dual-database pattern - Postgres for metadata, ClickHouse for traces/observations. Include the data flow from application SDK through Langfuse server to both databases.",
+      "expected_output": "A .drawio.png file with embedded XML showing the Langfuse architecture with dual databases and data flow arrows",
+      "files": [],
+      "assertions": [
+        {
+          "name": "valid-drawio-xml",
+          "text": "The intermediate .drawio file contains valid mxGraphModel XML"
+        },
+        {
+          "name": "exported-to-png",
+          "text": "A .drawio.png file was created using the draw.io CLI export with --embed-diagram flag"
+        },
+        {
+          "name": "intermediate-cleaned",
+          "text": "The intermediate .drawio file was deleted after successful export"
+        },
+        {
+          "name": "has-database-shapes",
+          "text": "Diagram contains cylinder shapes (shape=cylinder3) or similar for the database nodes"
+        },
+        {
+          "name": "shows-dual-databases",
+          "text": "Diagram shows at least 2 distinct database nodes (Postgres and ClickHouse)"
+        }
+      ]
+    }
+  ]
+}
