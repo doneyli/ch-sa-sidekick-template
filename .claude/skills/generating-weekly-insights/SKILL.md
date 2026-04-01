@@ -1,7 +1,9 @@
 ---
 name: generating-weekly-insights
-description: Generate an end-of-week SA activity insights report from Langfuse trace data
+description: Generate an end-of-week SA activity insights report from Langfuse trace data. Use for weekly reflection, when reviewing what you worked on this week, when generating an activity summary, or when analyzing patterns in your SA workflow.
 arguments: none
+allowed-tools: Bash, Read, Write
+model: sonnet
 ---
 
 # Weekly Insights Report

@@ -1,7 +1,8 @@
 ---
 name: preparing-meeting
-description: Prepare questions and agenda for any customer meeting — discovery, follow-up, architecture review, POC check-in, or escalation
+description: Prepare questions and agenda for any customer meeting - discovery, follow-up, architecture review, POC check-in, or escalation. Use before any customer call, when prepping for a meeting, when you need an agenda or question list, or when reviewing customer history before a conversation.
 arguments: customer-name
+model: opus
 ---
 
 # ClickHouse Meeting Prep

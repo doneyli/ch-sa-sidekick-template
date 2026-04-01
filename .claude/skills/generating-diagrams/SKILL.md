@@ -1,7 +1,9 @@
 ---
 name: generating-diagrams
-description: Generate draw.io diagrams as .drawio files, optionally export to PNG/SVG/PDF with embedded XML
+description: Generate draw.io diagrams as .drawio files, optionally export to PNG/SVG/PDF with embedded XML. Use when creating architecture diagrams, flowcharts, workflow visualizations, ER diagrams, or any visual diagram that needs to be editable in draw.io.
+arguments: diagram-description
 allowed-tools: Bash, Write
+model: sonnet
 ---
 
 # Draw.io Diagram Skill

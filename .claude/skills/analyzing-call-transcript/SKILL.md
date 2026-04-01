@@ -1,7 +1,8 @@
 ---
 name: analyzing-call-transcript
-description: Extract structured information from a customer call transcript
+description: Extract structured information from a customer call transcript. Use when processing meeting notes, when a call recording or transcript needs summarization, when extracting action items or decisions from a call, or when you need structured notes from any customer conversation.
 arguments: customer-name
+model: sonnet
 ---
 
 # Call Transcript Analysis

@@ -1,7 +1,8 @@
 ---
 name: converting-sql
-description: Convert SQL from another database dialect (Snowflake, Postgres, MySQL, BigQuery) to ClickHouse
+description: Convert SQL from another database dialect (Snowflake, Postgres, MySQL, BigQuery) to ClickHouse. Use when a customer is migrating from another database, when reviewing non-ClickHouse SQL, when doing dialect comparison, or when you see Snowflake/Postgres/MySQL/BigQuery syntax that needs a ClickHouse equivalent.
 arguments: customer-name
+model: sonnet
 ---
 
 # SQL Conversion — Source DB to ClickHouse

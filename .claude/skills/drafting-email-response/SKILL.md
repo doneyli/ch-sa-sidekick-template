@@ -1,7 +1,8 @@
 ---
 name: drafting-email-response
-description: Generate an HTML email response for a customer (Gmail copy-paste ready)
+description: Generate an HTML email response for a customer (Gmail copy-paste ready). Use when replying to a customer email, sending assessment results via email, composing a follow-up email, or when any customer communication needs to go via email rather than Slack.
 arguments: customer-name or topic
+model: sonnet
 ---
 
 # Email Response

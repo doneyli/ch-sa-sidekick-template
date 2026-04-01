@@ -1,7 +1,8 @@
 ---
 name: drafting-poc-plan
-description: Generate a POC plan with milestones, success criteria, and timeline
+description: Generate a POC plan with milestones, success criteria, and timeline. Use when a customer wants an implementation plan, when scoping a proof of concept, when defining success criteria for an evaluation, or when building a phased rollout plan for ClickHouse adoption.
 arguments: customer-name
+model: sonnet
 ---
 
 # ClickHouse POC Plan

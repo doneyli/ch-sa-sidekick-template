@@ -1,7 +1,8 @@
 ---
 name: drafting-migration-guide
-description: Generate step-by-step migration guide for schema changes or version upgrades
+description: Generate step-by-step migration guide for schema changes or version upgrades. Use when a customer needs to migrate schema, upgrade ClickHouse versions, move data between tables, or when any schema change requires a rollback plan and phased execution steps.
 arguments: customer-name
+model: opus
 ---
 
 # ClickHouse Migration Guide

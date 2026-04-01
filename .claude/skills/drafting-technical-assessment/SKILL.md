@@ -1,7 +1,8 @@
 ---
 name: drafting-technical-assessment
-description: Generate a comprehensive technical assessment for a ClickHouse customer issue
+description: Generate a comprehensive technical assessment for a ClickHouse customer issue. Use when doing a deep-dive on a customer problem, when a formal written assessment is needed, when analyzing schema + queries + configuration together, or when a customer escalation needs documented analysis with recommendations.
 arguments: customer-name
+model: opus
 ---
 
 # ClickHouse Technical Assessment

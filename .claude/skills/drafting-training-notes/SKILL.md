@@ -1,7 +1,8 @@
 ---
 name: drafting-training-notes
-description: Generate training/workshop content for customer enablement
+description: Generate training/workshop content for customer enablement. Use when preparing a customer workshop, when creating hands-on training material, when a customer team needs ClickHouse onboarding content, or when building educational exercises for any skill level.
 arguments: customer-name or topic
+model: sonnet
 ---
 
 # ClickHouse Training Notes

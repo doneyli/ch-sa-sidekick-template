@@ -1,7 +1,8 @@
 ---
 name: drafting-slack-response
-description: Generate a concise, customer-friendly Slack response
+description: Generate a concise, customer-friendly Slack response. Use when replying to a customer in Slack, when drafting a quick technical answer, when an internal Slack response is needed for an account team, or when any Slack message needs to be customer-appropriate and concise.
 arguments: optional customer-name or topic
+model: sonnet
 ---
 
 # ClickHouse Slack Response

@@ -1,7 +1,8 @@
 ---
 name: reviewing-queries
-description: Lightweight query optimization review — quick wins without a full assessment
+description: Lightweight query optimization review - quick wins without a full assessment. Use when a customer shares slow queries, asks about query performance, wants a quick query check, or when queries need a once-over before deciding on a full benchmark.
 arguments: customer-name
+model: sonnet
 ---
 
 # ClickHouse Query Review
@@ -126,7 +127,6 @@ SELECT
     query_duration_ms
 FROM system.query_log
 WHERE ...
-```
 ```
 
 ## Key Difference from `/drafting-technical-assessment`

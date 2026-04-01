@@ -1,7 +1,9 @@
 ---
 name: executing-benchmark
-description: Execute query optimization benchmarks against a ClickHouse Cloud service
+description: Execute query optimization benchmarks against a ClickHouse Cloud service. Use when running performance tests, when comparing query latency before and after optimization, when testing concurrent throughput, or when a customer engagement needs hard numbers on query performance.
 arguments: customer-name
+allowed-tools: Bash, Read
+model: sonnet
 ---
 
 # Execute Query Optimization Benchmark

@@ -40,13 +40,21 @@ def get_input_text:
     count: length
 }) | sort_by(-.count)) as $projects |
 
-# Skill invocations (prompts starting with /)
-($traces | map(get_input_text) | map(select(test("^/"))) |
-    map(capture("^/(?<skill>[a-zA-Z][\\w-]*)") | .skill) |
-    group_by(.) | map({
+# Skill invocations: detect both slash-command prefix AND injected skill content
+# Claude Code injects skills as "Base directory for this skill: /path/to/skill-name/SKILL.md"
+(
+    # Method 1: prompts starting with / (slash-command invocation)
+    ($traces | map(get_input_text) | map(select(test("^/"))) |
+        map(capture("^/(?<skill>[a-zA-Z][\\w-]*)") | .skill)) +
+    # Method 2: injected skill content (Skill tool invocation)
+    ($traces | map(get_input_text) |
+        map(select(test("Base directory for this skill:"))) |
+        map(capture("skills/(?<skill>[a-zA-Z][\\w-]*)") | .skill))
+    | group_by(.) | map({
         skill: ("/" + .[0]),
         count: length
-    }) | sort_by(-.count)) as $skills |
+    }) | sort_by(-.count)
+) as $skills |
 
 # Tool usage from observations
 ($obs | map(.name // "") | map(select(startswith("Tool: "))) |

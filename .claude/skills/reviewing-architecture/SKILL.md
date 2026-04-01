@@ -1,7 +1,8 @@
 ---
 name: reviewing-architecture
-description: Evaluate system architecture and design decisions for ClickHouse deployment
+description: Evaluate system architecture and design decisions for ClickHouse deployment. Use when reviewing a customer's overall ClickHouse setup, when preparing for an architecture review call, when evaluating scaling decisions, cluster topology, or when a customer asks about their system design.
 arguments: customer-name
+model: opus
 ---
 
 # ClickHouse Architecture Review

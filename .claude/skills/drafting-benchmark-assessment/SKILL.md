@@ -1,7 +1,8 @@
 ---
 name: drafting-benchmark-assessment
-description: Generate a query optimization assessment (MD + HTML) from benchmark results
+description: Generate a query optimization assessment (MD + HTML) from benchmark results. Use after running benchmarks, when benchmark CSV/TSV data is ready for writeup, when you need to produce a customer-facing optimization report, or when summarizing query performance improvements.
 arguments: customer-name
+model: opus
 ---
 
 # ClickHouse Benchmark Assessment

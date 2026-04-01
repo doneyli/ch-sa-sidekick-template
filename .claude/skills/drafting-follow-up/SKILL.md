@@ -1,7 +1,8 @@
 ---
 name: drafting-follow-up
-description: Generate follow-up questions and action items after an assessment or call
+description: Generate follow-up questions and action items after an assessment or call. Use when tracking open items from a prior engagement, when identifying information gaps before the next interaction, when you need a structured follow-up tracking document, or when checking what's still outstanding for a customer.
 arguments: customer-name
+model: sonnet
 ---
 
 # ClickHouse Follow-Up

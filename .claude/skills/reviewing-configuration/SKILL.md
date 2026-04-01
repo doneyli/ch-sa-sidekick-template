@@ -1,7 +1,8 @@
 ---
 name: reviewing-configuration
-description: Audit ClickHouse configuration settings against best practices
+description: Audit ClickHouse configuration settings against best practices. Use when reviewing a customer's ClickHouse config files, when checking server or table-level settings, when auditing Keeper configuration, or when a customer asks about tuning their ClickHouse settings.
 arguments: customer-name
+model: sonnet
 ---
 
 # ClickHouse Configuration Review
