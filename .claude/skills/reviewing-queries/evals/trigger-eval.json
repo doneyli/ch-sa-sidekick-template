@@ -1,0 +1,74 @@
+[
+  {
+    "query": "hey can you take a look at this query from Shopify? it's running slow on their events table SELECT user_id, count() FROM events WHERE ts > now() - INTERVAL 7 DAY GROUP BY user_id",
+    "should_trigger": true
+  },
+  {
+    "query": "Acme Corp sent over a few queries they want optimized before their go-live next week. Can you do a quick pass on them? customers/acme-corp/slow-queries.sql",
+    "should_trigger": true
+  },
+  {
+    "query": "customer has a query that's timing out after 30s, can we look at it real quick? SELECT * FROM logs WHERE message LIKE '%error%' ORDER BY timestamp DESC LIMIT 1000",
+    "should_trigger": true
+  },
+  {
+    "query": "quick query check for Stripe - they're seeing high memory usage on this aggregation, is there a quick win here? SELECT toStartOfHour(created_at), sum(amount), count() FROM payments GROUP BY 1 ORDER BY 1",
+    "should_trigger": true
+  },
+  {
+    "query": "can u look at customers/datadog-poc/queries/dashboard-query.sql and see if theres anything obviously wrong? customer says it takes 45 seconds",
+    "should_trigger": true
+  },
+  {
+    "query": "Fivetran asked about query performance on their replication status table. here's the slow one: SELECT * FROM replication_jobs WHERE status != 'completed' AND created_at > today() - 30",
+    "should_trigger": true
+  },
+  {
+    "query": "got a few queries from Cloudflare that need a once-over. nothing fancy, just want to know if there are obvious antipatterns before I get on a call with them",
+    "should_trigger": true
+  },
+  {
+    "query": "do a lightweight review of this JOIN query a customer sent, they're joining a 50B row table to a 10M row lookup: SELECT a.*, b.name FROM events a JOIN users b ON a.user_id = b.id WHERE a.event_date = today()",
+    "should_trigger": true
+  },
+  {
+    "query": "Zendesk shared customers/zendesk/ticket-queries.sql, they want to know if their queries are optimized for their MergeTree table. quick look?",
+    "should_trigger": true
+  },
+  {
+    "query": "customer pinged in Slack saying their hourly rollup query is slow again - can you review SELECT toStartOfHour(ts), sum(val) FROM metrics WHERE dt >= today()-7 GROUP BY 1 and flag quick wins?",
+    "should_trigger": true
+  },
+  {
+    "query": "I need a full written technical assessment for Stripe's performance issues. they have schema problems, slow queries, and config issues all mixed together. needs to be a formal doc we can share with their engineering lead",
+    "should_trigger": false
+  },
+  {
+    "query": "can you run the benchmarks against Acme Corp's service? I want actual before/after timing numbers. credentials are in customers/acme-corp/.env",
+    "should_trigger": false
+  },
+  {
+    "query": "check the ClickHouse best practices rules for primary key cardinality - I want to know if we're following the schema-pk-cardinality-order rule",
+    "should_trigger": false
+  },
+  {
+    "query": "Shopify needs a deep-dive document - schema analysis, query analysis, config review, everything. this is an escalation and we need something formal to send to their VP of Engineering",
+    "should_trigger": false
+  },
+  {
+    "query": "spin up a benchmark for customers/cloudflare/benchmark.manifest and give me p50/p95/p99 latency numbers across all query variants",
+    "should_trigger": false
+  },
+  {
+    "query": "can you write up a technical assessment for the Datadog POC? I want to cover schema design, partitioning choices, and replication config. formal writeup",
+    "should_trigger": false
+  },
+  {
+    "query": "look up the best practice rule for avoiding SELECT * in ClickHouse - not a specific customer query, just the general rule",
+    "should_trigger": false
+  },
+  {
+    "query": "execute the benchmark queries in customers/fivetran/benchmark.manifest against their Cloud service and produce a comparison report",
+    "should_trigger": false
+  }
+]

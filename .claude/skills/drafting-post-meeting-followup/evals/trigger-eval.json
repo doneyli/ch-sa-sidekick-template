@@ -1,0 +1,82 @@
+[
+  {
+    "query": "just finished a call with shopify's data engineering team, run the full post-meeting pipeline - transcript is at customers/shopify/2026-03-31-call-transcript.txt",
+    "should_trigger": true
+  },
+  {
+    "query": "acme-corp call wrapped up an hour ago. can you pull the action items, research any open questions, and draft the follow-up email? transcript in customers/acme-corp/",
+    "should_trigger": true
+  },
+  {
+    "query": "fintech-co POC check-in is done. need the whole post-meeting flow: notes extraction, action items, and email to their team",
+    "should_trigger": true
+  },
+  {
+    "query": "run post meeting followup for datastream-inc. call was today, transcript should be the most recent file in customers/datastream-inc/",
+    "should_trigger": true
+  },
+  {
+    "query": "architecture review with retailco finished this morning. need to send them meeting notes and next steps - do the full pipeline",
+    "should_trigger": true
+  },
+  {
+    "query": "medtech discovery call is done, transcript at customers/medtech/2026-04-01-discovery.txt - extract action items, research their questions about replication, and draft the follow-up email",
+    "should_trigger": true
+  },
+  {
+    "query": "we wrapped the globalretail escalation call. do the post meeting followup - they asked about sharding strategy and TTL, need those researched before the email goes out",
+    "should_trigger": true
+  },
+  {
+    "query": "logistics-corp quarterly business review just ended, their transcript is in customers/logistics-corp/2026-03-28-qbr.txt, run the full workflow transcript to email",
+    "should_trigger": true
+  },
+  {
+    "query": "just got off a call with streamco, need to send them a summary with the open questions and commitments from our discussion",
+    "should_trigger": true
+  },
+  {
+    "query": "post-meeting pipeline for startup-xyz - we talked about migration from Snowflake, they had questions I need to follow up on before emailing",
+    "should_trigger": true
+  },
+  {
+    "query": "pull out the action items and technical questions from customers/shopify/2026-03-31-call-transcript.txt but don't draft anything yet",
+    "should_trigger": false
+  },
+  {
+    "query": "extract what was discussed in the acme-corp call transcript, just give me a structured summary of the meeting",
+    "should_trigger": false
+  },
+  {
+    "query": "write an email reply to fintech-co's CTO who asked about our HA setup recommendations, needs to be gmail copy-paste ready",
+    "should_trigger": false
+  },
+  {
+    "query": "draft an HTML email to datastream-inc following up on the benchmark results from customers/datastream-inc/benchmark-results.csv",
+    "should_trigger": false
+  },
+  {
+    "query": "prepping for the retailco call tomorrow, need an agenda and question list based on customers/retailco/ context",
+    "should_trigger": false
+  },
+  {
+    "query": "help me prep for the medtech architecture review next week - what questions should i ask and what context should i review first",
+    "should_trigger": false
+  },
+  {
+    "query": "globalretail is asking about their INSERT performance in slack, can you write a response to their thread in C0553LF3TV1",
+    "should_trigger": false
+  },
+  {
+    "query": "logistics-corp posted a question about their TTL policy in slack, draft a reply explaining how TTL deletes work in ClickHouse",
+    "should_trigger": false
+  },
+  {
+    "query": "what open action items do I still have from the last 3 customer calls that haven't been resolved yet",
+    "should_trigger": false
+  },
+  {
+    "query": "track follow-up items from the streamco assessment - their S3 integration questions and the schema review are both still pending",
+    "should_trigger": false
+  }
+]

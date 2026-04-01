@@ -1,0 +1,82 @@
+[
+  {
+    "query": "draft an email reply to Shopify's engineering lead - they asked about our recommended MergeTree engine settings for their OTel workload in customers/shopify/2026-03-15-otel-schema.md",
+    "should_trigger": true
+  },
+  {
+    "query": "can you write an HTML email response to acme-corp's CTO? he sent us a note asking about clickhouse cloud pricing tiers and whether we support multi-region replication",
+    "should_trigger": true
+  },
+  {
+    "query": "compose an email to fintech-co's data team with the benchmark results from customers/fintech-co/benchmark-results-2026-03-28.csv, make it gmail-ready",
+    "should_trigger": true
+  },
+  {
+    "query": "customer datastream-inc sent an email asking why their INSERT performance dropped after upgrading to 24.8. need to reply professionally with an explanation and next steps",
+    "should_trigger": true
+  },
+  {
+    "query": "write me a customer email for retailco - they want to know if ClickHouse supports full-text search. keep it concise, I'll paste it into gmail",
+    "should_trigger": true
+  },
+  {
+    "query": "send an email to logistics-corp's team, subject: 'Re: TOO_MANY_PARTS issue from last week' - summarize the fix we discussed and next steps",
+    "should_trigger": true
+  },
+  {
+    "query": "i need to reply via email to medtech's architect, she asked about replication factor recommendations for a 3-node self-managed cluster on bare metal",
+    "should_trigger": true
+  },
+  {
+    "query": "draft html email to globalretail's VP of engineering attaching the assessment from customers/globalretail/2026-03-20-technical-assessment.md",
+    "should_trigger": true
+  },
+  {
+    "query": "compose an email response to startup-xyz - they emailed asking whether clickhouse is a good fit for their 10TB time-series dataset, want a recommendation",
+    "should_trigger": true
+  },
+  {
+    "query": "need an email for streamco's PM who asked about our SLA guarantees on clickhouse cloud, keep it formal and cite the docs",
+    "should_trigger": true
+  },
+  {
+    "query": "shopify is asking about TOO_MANY_PARTS in the shared slack channel C0553LF3TV1, can you draft a reply to that thread",
+    "should_trigger": false
+  },
+  {
+    "query": "fintech-co just posted in slack asking about their MergeTree TTL settings, help me respond to that message",
+    "should_trigger": false
+  },
+  {
+    "query": "had a call with acme-corp yesterday, need to do the full post-meeting workflow - transcript is at customers/acme-corp/call-2026-03-30-transcript.txt",
+    "should_trigger": false
+  },
+  {
+    "query": "run the post-meeting followup pipeline for datastream-inc - pull action items from the transcript and send the summary",
+    "should_trigger": false
+  },
+  {
+    "query": "track all the open action items from my last three customer calls so I can follow up next week",
+    "should_trigger": false
+  },
+  {
+    "query": "what follow-up items are still outstanding from the retailco technical assessment last month",
+    "should_trigger": false
+  },
+  {
+    "query": "logistics-corp asked a question in slack about their replication setup, write a slack response they can see in the channel",
+    "should_trigger": false
+  },
+  {
+    "query": "draft a quick slack message to globalretail's engineer explaining why their query plan shows a full table scan",
+    "should_trigger": false
+  },
+  {
+    "query": "write meeting notes from the medtech call transcript at customers/medtech/2026-03-29-call.txt and extract action items",
+    "should_trigger": false
+  },
+  {
+    "query": "I just finished a call with startup-xyz, help me extract the action items from the transcript and prep the follow-up",
+    "should_trigger": false
+  }
+]

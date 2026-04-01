@@ -1,0 +1,74 @@
+[
+  {
+    "query": "Stripe is escalating - they have schema issues, slow queries, and replication lag all at once. I need a formal technical assessment doc I can share with their engineering lead by Friday",
+    "should_trigger": true
+  },
+  {
+    "query": "can you do a full deep-dive on Cloudflare's ClickHouse setup? analyze everything in customers/cloudflare/ - schema, queries, config, the works. they want a written document",
+    "should_trigger": true
+  },
+  {
+    "query": "Datadog is experiencing TOO_MANY_PARTS and insert failures. I need a comprehensive written analysis with root cause and recommendations. this is going to their infrastructure team",
+    "should_trigger": true
+  },
+  {
+    "query": "formal assessment needed for Shopify BYOC POC. cover schema optimization, OTel ingestion performance, and partitioning strategy. needs to be a doc we can present in their Monday review",
+    "should_trigger": true
+  },
+  {
+    "query": "Zendesk has an escalation - their ClickHouse cluster is hitting memory limits and query timeouts. I need a documented analysis of customers/zendesk/schema.sql and customers/zendesk/queries/ with prioritized recommendations",
+    "should_trigger": true
+  },
+  {
+    "query": "write up a technical assessment for the Acme Corp engagement. they have a complex issue: wrong ORDER BY on their main table, missing projections, and bad materialized views. document the full picture",
+    "should_trigger": true
+  },
+  {
+    "query": "customer wants a written analysis combining their schema design, query patterns, and server config. this is for an internal review at their company to justify moving to ClickHouse Cloud",
+    "should_trigger": true
+  },
+  {
+    "query": "Fivetran's CDC pipeline is broken and I need a proper documented assessment - not just quick fixes. analyze customers/fivetran/schema.sql, customers/fivetran/queries/, and their replication config together",
+    "should_trigger": true
+  },
+  {
+    "query": "we need a formal written deep-dive on why Brex's dashboard queries are degrading. schema analysis + query analysis + config review, all in one doc. executive summary at the top",
+    "should_trigger": true
+  },
+  {
+    "query": "do a comprehensive technical assessment for Hubspot's ClickHouse migration issues. they're mid-migration and hitting problems. formal doc with root cause analysis, impact assessment, and remediation plan",
+    "should_trigger": true
+  },
+  {
+    "query": "customer sent over a slow query, can you do a quick pass and flag any obvious issues? SELECT user_id, count() FROM events WHERE ts > now() - INTERVAL 7 DAY GROUP BY user_id",
+    "should_trigger": false
+  },
+  {
+    "query": "quick query check on customers/acme-corp/slow-queries.sql - just want quick wins before my call this afternoon",
+    "should_trigger": false
+  },
+  {
+    "query": "Shopify wants an architecture review. they're planning to scale to 10 nodes and want to know if their cluster topology makes sense. can you evaluate their overall design?",
+    "should_trigger": false
+  },
+  {
+    "query": "I have benchmark results in customers/stripe/benchmark-results.csv - can you write up the assessment from those numbers? comparison table, summary, recommendations",
+    "should_trigger": false
+  },
+  {
+    "query": "can you review Cloudflare's architecture? they have a multi-region setup with Keeper and I want to evaluate if the replication topology is sound before we commit to it",
+    "should_trigger": false
+  },
+  {
+    "query": "benchmark data is ready in customers/datadog/results/. draft the assessment email and markdown doc from those results",
+    "should_trigger": false
+  },
+  {
+    "query": "once-over on this JOIN query before I hop on a call - just flag antipatterns if you see any. SELECT a.*, b.name FROM events a JOIN users b ON a.user_id = b.id",
+    "should_trigger": false
+  },
+  {
+    "query": "take a look at Zendesk's cluster design - 3 shards, 2 replicas, dedicated keeper nodes. is this the right topology for 500GB/day ingest?",
+    "should_trigger": false
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "query": "have a discovery call with shopify tomorrow, help me prep - what questions should I ask and what context from customers/shopify/ should I review",
+    "should_trigger": true
+  },
+  {
+    "query": "acme-corp architecture review is in 2 hours. generate an agenda and question list based on their current setup in customers/acme-corp/",
+    "should_trigger": true
+  },
+  {
+    "query": "prepping for fintech-co POC check-in call on friday. they're building a real-time fraud detection pipeline on ClickHouse Cloud, what should I cover",
+    "should_trigger": true
+  },
+  {
+    "query": "need to prepare for a datastream-inc escalation call - customer is angry about query performance. what should i have ready and what questions to ask",
+    "should_trigger": true
+  },
+  {
+    "query": "can u prep meeting questions for retailco's monthly check-in? they've been having TOO_MANY_PARTS issues, context in customers/retailco/2026-03-status.md",
+    "should_trigger": true
+  },
+  {
+    "query": "medtech wants to do a schema review call next tuesday. build me an agenda that covers their OTel tables and the compression settings question they raised",
+    "should_trigger": true
+  },
+  {
+    "query": "prep for globalretail's quarterly business review - executive audience, need good questions about adoption, blockers, and roadmap alignment",
+    "should_trigger": true
+  },
+  {
+    "query": "logistics-corp wants a technical deep-dive call on their replication setup. what questions and topics should I prepare given customers/logistics-corp/arch-notes.md",
+    "should_trigger": true
+  },
+  {
+    "query": "generate a pre-call agenda for startup-xyz's first discovery call - they're evaluating ClickHouse vs Snowflake for a 5TB analytics workload",
+    "should_trigger": true
+  },
+  {
+    "query": "streamco call is tomorrow morning. they want to discuss moving their kafka consumers into clickhouse, help me get ready with good questions and an agenda",
+    "should_trigger": true
+  },
+  {
+    "query": "shopify call is done, run the post-meeting followup pipeline on customers/shopify/2026-04-01-call-transcript.txt",
+    "should_trigger": false
+  },
+  {
+    "query": "just wrapped the acme-corp architecture review. extract action items from the transcript and draft a follow-up email",
+    "should_trigger": false
+  },
+  {
+    "query": "fintech-co posted a long slack thread about their schema design, can you analyze it and tell me what they actually need",
+    "should_trigger": false
+  },
+  {
+    "query": "there's a slack thread from datastream-inc in C0553LF3TV1 about their replication lag, can you analyze what they're describing and what's going on",
+    "should_trigger": false
+  },
+  {
+    "query": "retailco wants a full architecture review of their ClickHouse cluster - 3 shards, 2 replicas, on-prem, evaluate their design decisions",
+    "should_trigger": false
+  },
+  {
+    "query": "do a thorough architecture review of medtech's ClickHouse deployment - customers/medtech/arch-diagram.drawio and their config files",
+    "should_trigger": false
+  },
+  {
+    "query": "globalretail just sent a long email asking about their partitioning strategy. can you draft an email response?",
+    "should_trigger": false
+  },
+  {
+    "query": "write a follow-up email to logistics-corp from our call last week, covering the action items we agreed on",
+    "should_trigger": false
+  },
+  {
+    "query": "startup-xyz shared their SQL queries from Snowflake - convert these to ClickHouse syntax before our next call",
+    "should_trigger": false
+  },
+  {
+    "query": "review streamco's ClickHouse config files in customers/streamco/config/ and tell me if anything looks off before I send recommendations",
+    "should_trigger": false
+  }
+]

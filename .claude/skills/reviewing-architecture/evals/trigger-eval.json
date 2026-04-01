@@ -1,0 +1,74 @@
+[
+  {
+    "query": "Shopify wants a full architecture review before they commit to their BYOC design. can you evaluate their overall ClickHouse setup - sharding strategy, keeper topology, network layout, the whole thing",
+    "should_trigger": true
+  },
+  {
+    "query": "Cloudflare has a multi-region ClickHouse deployment and wants to know if the design is sound. review their cluster topology in customers/cloudflare/architecture.md and flag any concerns",
+    "should_trigger": true
+  },
+  {
+    "query": "customer is scaling from 3 to 12 nodes and wants to know if their architecture will hold up. evaluate their current design and scaling approach - this is a big capacity decision for them",
+    "should_trigger": true
+  },
+  {
+    "query": "I have an architecture review call with Stripe next week. can you evaluate customers/stripe/architecture-diagram.drawio and their cluster design ahead of time?",
+    "should_trigger": true
+  },
+  {
+    "query": "Datadog is asking whether their tiered storage setup makes sense architecturally - hot/warm/cold with S3 backed volumes. evaluate the overall system design and tradeoffs",
+    "should_trigger": true
+  },
+  {
+    "query": "can you do an architecture eval for Brex? they have 6 shards, 3 replicas, Keeper on separate nodes, and a separate ingestion tier. want to know if this topology is right for their scale",
+    "should_trigger": true
+  },
+  {
+    "query": "Fivetran is deciding between a shared cluster vs dedicated clusters per tenant. evaluate the architecture tradeoffs for their multi-tenant ClickHouse setup",
+    "should_trigger": true
+  },
+  {
+    "query": "customer system design review - they have ClickHouse behind a Kafka ingestion layer with materialized views doing enrichment. is this architecture pattern sound for 1M events/sec?",
+    "should_trigger": true
+  },
+  {
+    "query": "Zendesk sent over their proposed ClickHouse architecture for their new observability platform. evaluate it - ingestion, storage, query serving, all layers. customers/zendesk/proposed-arch.md",
+    "should_trigger": true
+  },
+  {
+    "query": "need to evaluate Hubspot's ClickHouse cluster design before their architecture review call Thursday. they have an unusual sharding scheme and I want a second opinion",
+    "should_trigger": true
+  },
+  {
+    "query": "Stripe has a full technical problem - slow queries, wrong schema, bad config all at once. I need a comprehensive written assessment covering all of it with root cause and remediation",
+    "should_trigger": false
+  },
+  {
+    "query": "can you review Cloudflare's ClickHouse config files? customers/cloudflare/config/config.xml and users.xml - check for misconfigurations against best practices",
+    "should_trigger": false
+  },
+  {
+    "query": "I have a discovery call with Datadog tomorrow about their ClickHouse migration. can you prepare questions and an agenda for the call?",
+    "should_trigger": false
+  },
+  {
+    "query": "Shopify has an escalation - TOO_MANY_PARTS, insert failures, and replica lag all happening at once. formal assessment doc needed with full root cause analysis",
+    "should_trigger": false
+  },
+  {
+    "query": "audit Fivetran's max_memory_usage and background_pool_size settings in customers/fivetran/config/ - are these values appropriate for their workload?",
+    "should_trigger": false
+  },
+  {
+    "query": "prep me for the architecture review meeting with Zendesk at 2pm. what questions should I ask and what should I look for?",
+    "should_trigger": false
+  },
+  {
+    "query": "look at customers/brex/config.xml and flag any config settings that could be causing their memory pressure issues",
+    "should_trigger": false
+  },
+  {
+    "query": "I need to prepare for tomorrow's call with Hubspot - it's an architecture review session. what agenda items and questions should I bring?",
+    "should_trigger": false
+  }
+]
