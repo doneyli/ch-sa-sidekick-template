@@ -1,0 +1,248 @@
+<mxGraphModel dx="1422" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1000" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- Title -->
+    <mxCell id="title" value="ClickHouse Cloud - Reference Architecture" style="text;html=1;fontSize=22;fontStyle=1;fontColor=#1a1a2e;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+      <mxGeometry x="400" y="20" width="800" height="40" as="geometry"/>
+    </mxCell>
+
+    <!-- CLIENT LAYER -->
+    <mxCell id="client_group" value="Client Layer" style="swimlane;startSize=30;fillColor=#f5f5f5;strokeColor=#999999;fontStyle=1;fontSize=13;fontColor=#333333;rounded=1;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="80" width="1440" height="100" as="geometry"/>
+    </mxCell>
+    <mxCell id="app" value="Applications&#xa;&amp; Microservices" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="40" y="40" width="130" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="bi" value="BI Tools&#xa;(Grafana, Superset,&#xa;Tableau, Metabase)" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="210" y="35" width="150" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="clickhouse_client" value="clickhouse-client&#xa;&amp; CLIs" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="400" y="40" width="130" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="sdk" value="Language SDKs&#xa;(Python, Go, Java,&#xa;JS, Rust)" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="570" y="35" width="140" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="dbt" value="dbt&#xa;&amp; Orchestrators&#xa;(Airflow, Dagster)" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="750" y="35" width="140" height="55" as="geometry"/>
+    </mxCell>
+    <mxCell id="cloud_console" value="ClickHouse&#xa;Cloud Console" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="930" y="40" width="130" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="sql_console" value="SQL Console&#xa;(built-in)" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="1100" y="40" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="api_client" value="Cloud API&#xa;(REST / Terraform)" style="rounded=1;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;fontStyle=0;" vertex="1" parent="client_group">
+      <mxGeometry x="1260" y="40" width="140" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- NETWORKING / SECURITY LAYER -->
+    <mxCell id="net_group" value="Networking &amp; Security" style="swimlane;startSize=30;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;fontSize=13;fontColor=#333333;rounded=1;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="210" width="1440" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="tls" value="TLS Encryption&#xa;(in-transit)" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="net_group">
+      <mxGeometry x="40" y="35" width="130" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="privatelink" value="AWS PrivateLink /&#xa;GCP Private Service Connect /&#xa;Azure Private Link" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" vertex="1" parent="net_group">
+      <mxGeometry x="210" y="30" width="220" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="ip_filter" value="IP Access Lists" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="net_group">
+      <mxGeometry x="470" y="35" width="130" height="40" as="geometry"/>
+    </mxCell>
+    <mxCell id="rbac" value="RBAC &amp;&#xa;Row/Column Policies" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="net_group">
+      <mxGeometry x="640" y="32" width="150" height="43" as="geometry"/>
+    </mxCell>
+    <mxCell id="endpoints" value="Multiple Endpoints&#xa;(Read / Write separation)" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="net_group">
+      <mxGeometry x="830" y="32" width="180" height="43" as="geometry"/>
+    </mxCell>
+    <mxCell id="cmek" value="CMEK&#xa;(Encryption at rest)" style="rounded=1;whiteSpace=wrap;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="net_group">
+      <mxGeometry x="1050" y="32" width="150" height="43" as="geometry"/>
+    </mxCell>
+
+    <!-- INGESTION LAYER -->
+    <mxCell id="ingest_group" value="Data Ingestion (ClickPipes &amp; Native)" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;fontColor=#333333;rounded=1;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="320" width="660" height="120" as="geometry"/>
+    </mxCell>
+    <mxCell id="clickpipes" value="ClickPipes" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" vertex="1" parent="ingest_group">
+      <mxGeometry x="20" y="35" width="620" height="25" as="geometry"/>
+    </mxCell>
+    <mxCell id="kafka_cp" value="Kafka /&#xa;Confluent /&#xa;MSK / Redpanda" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=10;" vertex="1" parent="ingest_group">
+      <mxGeometry x="20" y="68" width="110" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3_cp" value="Amazon S3 /&#xa;GCS" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=10;" vertex="1" parent="ingest_group">
+      <mxGeometry x="145" y="68" width="90" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="kinesis_cp" value="Amazon&#xa;Kinesis" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=10;" vertex="1" parent="ingest_group">
+      <mxGeometry x="250" y="68" width="80" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="postgres_cp" value="PostgreSQL&#xa;(CDC)" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=10;" vertex="1" parent="ingest_group">
+      <mxGeometry x="345" y="68" width="85" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="mysql_cp" value="MySQL&#xa;(CDC)" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=10;" vertex="1" parent="ingest_group">
+      <mxGeometry x="445" y="68" width="80" height="45" as="geometry"/>
+    </mxCell>
+    <mxCell id="azblob_cp" value="Azure Blob /&#xa;Event Hubs" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=10;" vertex="1" parent="ingest_group">
+      <mxGeometry x="540" y="68" width="100" height="45" as="geometry"/>
+    </mxCell>
+
+    <!-- NATIVE INSERT -->
+    <mxCell id="native_group" value="Native Insert Paths" style="swimlane;startSize=30;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;fontSize=13;fontColor=#333333;rounded=1;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="770" y="320" width="750" height="120" as="geometry"/>
+    </mxCell>
+    <mxCell id="http_insert" value="HTTP Interface&#xa;(INSERT)" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=11;" vertex="1" parent="native_group">
+      <mxGeometry x="20" y="40" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="native_insert" value="Native Protocol&#xa;(TCP 9440)" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=11;" vertex="1" parent="native_group">
+      <mxGeometry x="160" y="40" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3_func" value="s3() / gcs()&#xa;Table Functions" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=11;" vertex="1" parent="native_group">
+      <mxGeometry x="300" y="40" width="120" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="url_func" value="url() / remote()&#xa;Table Functions" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=11;" vertex="1" parent="native_group">
+      <mxGeometry x="440" y="40" width="130" height="50" as="geometry"/>
+    </mxCell>
+    <mxCell id="mv_insert" value="Materialized&#xa;Views (transform&#xa;on insert)" style="rounded=1;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#67ab49;fontSize=10;" vertex="1" parent="native_group">
+      <mxGeometry x="590" y="35" width="120" height="58" as="geometry"/>
+    </mxCell>
+
+    <!-- COMPUTE LAYER - Main ClickHouse Cloud Box -->
+    <mxCell id="compute_group" value="ClickHouse Cloud Service (Compute)" style="swimlane;startSize=30;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;fontColor=#1a1a2e;rounded=1;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="470" width="1440" height="200" as="geometry"/>
+    </mxCell>
+
+    <!-- Load Balancer -->
+    <mxCell id="lb" value="Cloud Load Balancer&#xa;(HTTPS :8443 / Native :9440)" style="rounded=1;whiteSpace=wrap;fillColor=#b3cde3;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="510" y="35" width="250" height="40" as="geometry"/>
+    </mxCell>
+
+    <!-- ClickHouse Replicas -->
+    <mxCell id="replica1" value="ClickHouse Server&#xa;Replica 1&#xa;(SharedMergeTree)" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="130" y="100" width="160" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="replica2" value="ClickHouse Server&#xa;Replica 2&#xa;(SharedMergeTree)" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="350" y="100" width="160" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="replica3" value="ClickHouse Server&#xa;Replica 3&#xa;(SharedMergeTree)" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="570" y="100" width="160" height="70" as="geometry"/>
+    </mxCell>
+    <mxCell id="replica_n" value="...&#xa;Auto-scaled&#xa;Replica N" style="rounded=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;fontStyle=0;dashed=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="790" y="100" width="130" height="70" as="geometry"/>
+    </mxCell>
+
+    <!-- Local SSD Cache -->
+    <mxCell id="cache_label" value="Local NVMe SSD Cache (hot data)" style="rounded=1;whiteSpace=wrap;fillColor=#b3cde3;strokeColor=#6c8ebf;fontSize=11;dashed=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="130" y="175" width="790" height="20" as="geometry"/>
+    </mxCell>
+
+    <!-- Keeper -->
+    <mxCell id="keeper" value="ClickHouse&#xa;Keeper&#xa;(Coordination)" style="rounded=1;whiteSpace=wrap;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="1020" y="90" width="130" height="70" as="geometry"/>
+    </mxCell>
+
+    <!-- Autoscaling -->
+    <mxCell id="autoscale" value="Vertical &amp;&#xa;Horizontal&#xa;Autoscaling" style="rounded=1;whiteSpace=wrap;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=11;fontStyle=1;" vertex="1" parent="compute_group">
+      <mxGeometry x="1210" y="90" width="130" height="70" as="geometry"/>
+    </mxCell>
+
+    <!-- Idle / Resume -->
+    <mxCell id="idle" value="Auto-idle /&#xa;Auto-resume" style="rounded=1;whiteSpace=wrap;fillColor=#cce5ff;strokeColor=#6c8ebf;fontSize=10;" vertex="1" parent="compute_group">
+      <mxGeometry x="1210" y="35" width="100" height="42" as="geometry"/>
+    </mxCell>
+
+    <!-- Edges: LB to replicas -->
+    <mxCell id="e_lb_r1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="lb" target="replica1" parent="compute_group">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_lb_r2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="lb" target="replica2" parent="compute_group">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_lb_r3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;" edge="1" source="lb" target="replica3" parent="compute_group">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_lb_rn" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;dashed=1;" edge="1" source="lb" target="replica_n" parent="compute_group">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- OBJECT STORAGE LAYER -->
+    <mxCell id="storage_group" value="Shared Object Storage (Persistence)" style="swimlane;startSize=30;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;fontSize=14;fontColor=#1a1a2e;rounded=1;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="700" width="1440" height="110" as="geometry"/>
+    </mxCell>
+    <mxCell id="s3_storage" value="Amazon S3" style="shape=cylinder3;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;size=10;" vertex="1" parent="storage_group">
+      <mxGeometry x="180" y="35" width="120" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="gcs_storage" value="Google Cloud&#xa;Storage" style="shape=cylinder3;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;size=10;" vertex="1" parent="storage_group">
+      <mxGeometry x="460" y="35" width="120" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="azure_storage" value="Azure Blob&#xa;Storage" style="shape=cylinder3;whiteSpace=wrap;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;size=10;" vertex="1" parent="storage_group">
+      <mxGeometry x="740" y="35" width="120" height="65" as="geometry"/>
+    </mxCell>
+    <mxCell id="storage_desc" value="Data parts, metadata, backups stored durably in object storage.&#xa;Compute nodes are stateless - storage is the source of truth." style="text;html=1;fontSize=11;fontColor=#666666;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="storage_group">
+      <mxGeometry x="960" y="40" width="400" height="50" as="geometry"/>
+    </mxCell>
+
+    <!-- OBSERVABILITY -->
+    <mxCell id="obs_group" value="Observability &amp; Management" style="swimlane;startSize=30;fillColor=#e6e6e6;strokeColor=#999999;fontStyle=1;fontSize=13;fontColor=#333333;rounded=1;arcSize=8;" vertex="1" parent="1">
+      <mxGeometry x="80" y="840" width="1440" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="query_log" value="system.query_log&#xa;&amp; Query Insights" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="30" y="35" width="140" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="prometheus" value="Prometheus&#xa;Metrics Endpoint" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="200" y="35" width="130" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="cloud_api" value="Cloud API&#xa;(Service Mgmt)" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="360" y="35" width="120" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="terraform" value="Terraform&#xa;Provider" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="510" y="35" width="100" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="backups" value="Automated&#xa;Backups" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="640" y="35" width="100" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="activity_log" value="Activity Log&#xa;(Audit)" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="770" y="35" width="100" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="alerts_cfg" value="Alerting&#xa;(Configurable)" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="900" y="35" width="110" height="38" as="geometry"/>
+    </mxCell>
+    <mxCell id="query_cache" value="Query Cache &amp;&#xa;Query Profiler" style="rounded=1;whiteSpace=wrap;fillColor=#e6e6e6;strokeColor=#999999;fontSize=10;" vertex="1" parent="obs_group">
+      <mxGeometry x="1040" y="35" width="120" height="38" as="geometry"/>
+    </mxCell>
+
+    <!-- EDGES: Client to Networking -->
+    <mxCell id="e_client_net" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#999999;strokeWidth=2;" edge="1" source="client_group" target="net_group" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- EDGES: Networking to Ingestion -->
+    <mxCell id="e_net_ingest" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=2;" edge="1" source="net_group" target="ingest_group" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_net_native" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#82b366;strokeWidth=2;" edge="1" source="net_group" target="native_group" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- EDGES: Ingestion to Compute -->
+    <mxCell id="e_ingest_compute" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;" edge="1" source="ingest_group" target="compute_group" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="e_native_compute" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#6c8ebf;strokeWidth=2;" edge="1" source="native_group" target="compute_group" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- EDGES: Compute to Storage -->
+    <mxCell id="e_compute_storage" value="Read/Write data parts" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#b85450;strokeWidth=2;fontSize=10;fontColor=#b85450;" edge="1" source="compute_group" target="storage_group" parent="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+
+    <!-- KEY CALLOUTS -->
+    <mxCell id="callout_sep" value="Separation of Compute &amp; Storage:&#xa;Compute scales independently.&#xa;Storage is shared, durable, and&#xa;virtually unlimited." style="shape=note;whiteSpace=wrap;size=14;fillColor=#ffffcc;strokeColor=#d6b656;fontSize=10;fontColor=#333333;align=left;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="1300" y="485" width="200" height="80" as="geometry"/>
+    </mxCell>
+    <mxCell id="callout_smt" value="SharedMergeTree Engine:&#xa;All replicas read from the same&#xa;object storage. No data copying&#xa;between replicas." style="shape=note;whiteSpace=wrap;size=14;fillColor=#ffffcc;strokeColor=#d6b656;fontSize=10;fontColor=#333333;align=left;spacingLeft=8;" vertex="1" parent="1">
+      <mxGeometry x="1300" y="575" width="200" height="80" as="geometry"/>
+    </mxCell>
+
+  </root>
+</mxGraphModel>
